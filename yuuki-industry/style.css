@@ -246,3 +246,11 @@ transform:scale(1, 1);
 .footer_navi li {
   padding: 10px;
 }
+
+/*ABOUT US*/
+#aboutus_text {
+  text-align: center;
+}
+#aboutus_text {
+  font-size: 3rem;
+}
