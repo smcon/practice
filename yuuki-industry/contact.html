@@ -34,22 +34,63 @@
     <img src="images/top-Contact.png" alt="contact">
   </div>
 
+ <!--お問い合わせフォーム-->
+ <form action="your-server-side-script.php" method="POST">
+  <div class="form-row">
+    <div class="form-label">
+      <label for="name">お名前</label>
+      <span>必須</span>
+    </div>
+    <input type="text" id="name" name="name" placeholder="例) 山田 太朗" required>
+  </div>
+  <div class="form-row">
+    <div class="form-label">
+      <label for="email">メールアドレス:</label>
+      <span>必須</span>
+    </div>
+    <input type="email" id="email" name="email" placeholder="例) abcd@xyz.com" required>
+  </div>
+  <div class="form-row">
+    <div class="form-label">
+      <label for="pet-select">お問い合わせ種類</label>
+    </div>
+    <select name="animal" id="pet-select">
+      <option value="">--選択してください--</option>
+      <option value="job">仕事依頼</option>
+      <option value="recruit">採用について</option>
+      <option value="company">会社について</option>
+      <option value="other">その他</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <div class="form-label">
+      <label for="message">お問い合わせ内容</label>
+      <span>必須</span>
+    </div>
+    <textarea id="message" name="message" rows="5"placeholder="お問い合わせ内容をこちらにご記入ください" required></textarea>
+  </div>
+  <div class="form-row">
+    <div class="form-label"></div>
+    <button type="submit">送信</button>
+  </div>
+</form>
+<!--問い合わせフォームここまで--> 
 
   <!--CONTACT-->
   <div id="contact">
-    <div>
-    <h2>CONTACT<br>お問い合わせ</h2>
+    <div class="text">
+    <h2><span>CONTACT<br>お問い合わせ</span></h2>
     </div>
-    <div>
+    <div class="text">
       <h3>電話でのお問い合わせ</h3>
       <h3>TEL 000-0000-0000</h3>
       <span></span>
       <h3>メールでのお問い合わせ</h3>
       <div class="botton">
-      <a href="contact.html" class="btn">CONTACT<br><span></span>お問い合わせ</a>
+      <a href="contact.html" class="btn bgleft"><span>CONTACT<br>お問い合わせ</span></a>
       </div>
     </div>
-  </div>    
+  </div>
     <!--footer-->
     <footer id="footer">
       <div class="footer_navi">
