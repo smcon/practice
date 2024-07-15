@@ -20,7 +20,8 @@ session_start();
     $_SESSION = array();
     $mode = "send";
   } else {
-    $SESSION = array();
+    $_SESSION = array();
+  }
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -37,7 +38,7 @@ session_start();
     </form>
   <?php } else if( $mode == "confirm" ){ ?>
     <!-- 確認画面 -->
-    <form action="./cotactform.php" method="post">
+    <form action="./contactform.php" method="post">
       名前 <?php echo $_SESSION["fullname"] ?>
       Eメール <?php echo $_SESSION["email"] ?>
       本文 <?php echo nl2br($_SESSION["message"]) ?>

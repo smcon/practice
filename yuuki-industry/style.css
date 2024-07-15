@@ -44,8 +44,7 @@ li {
 /*ABOUT_US*/
 #about_us {
   background-image: url(images/aboutus.png);
-  width: 1150px;
-  height: 600px;
+  
   margin: 0 150px 100px 150px;
   position: relative;
 }

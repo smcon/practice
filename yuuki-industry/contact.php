@@ -35,47 +35,57 @@
   </div>
 
  <!--お問い合わせフォーム-->
- <form action="contact.php" method="POST">
-  <div class="form-row">
-    <div class="form-label">
-      <label for="name">お名前</label>
-      <span>必須</span>
-    </div>
-    <input type="text" id="name" name="name" placeholder="例) 山田 太朗" required>
-  </div>
-  <div class="form-row">
-    <div class="form-label">
-      <label for="email">メールアドレス:</label>
-      <span>必須</span>
-    </div>
-    <input type="email" id="email" name="email" placeholder="例) abcd@xyz.com" required>
-  </div>
-  <div class="form-row">
-    <div class="form-label">
-      <label for="pet-select">お問い合わせ種類</label>
-    </div>
-    <select name="animal" id="pet-select">
-      <option value="">--選択してください--</option>
-      <option value="job">仕事依頼</option>
-      <option value="recruit">採用について</option>
-      <option value="company">会社について</option>
-      <option value="other">その他</option>
-    </select>
-  </div>
-  <div class="form-row">
-    <div class="form-label">
-      <label for="message">お問い合わせ内容</label>
-      <span>必須</span>
-    </div>
-    <textarea id="message" name="message" rows="5"placeholder="お問い合わせ内容をこちらにご記入ください" required></textarea>
-  </div>
-  <div class="form-row">
-    <div class="form-label"></div>
-    <button type="submit">送信</button>
-  </div>
-</form>
-<!--問い合わせフォームここまで--> 
+ <?php
+session_start();
+  $mode = "input";
+  if( isset($_POST["back"] ) && $_POST["back"] ){
+    // 何もしない
+  } else if( isset($_POST["confirm"] ) && $_POST["confirm"] ){
+    $_SESSION["fullname"] = $_POST["fullname"];
+    $_SESSION["email"] = $_POST["email"];
+    $_SESSION["message"] = $_POST["message"];
+    $mode = "confirm";
+  } else if( isset($_POST["send"] ) && $_POST["send"] ){
+    // 送信ボタンを押下
+    $message = "お問い合わせを受け付けました\r\n"
+             . "名前" . $_SESSION["fullname"] . "\r\n"
+             . "email" . $_SESSION["email"] . "\r\n"
+             . "お問い合わせ内容:\r\n"
+             . preg_replace("/\r\n|\r|\n/", "\r\n", $_SESSION["message"] );
+    mail($_SESSION["email"], "お問い合わせありがとうございます", $message );
+    mail("zhixiaotian805@gmail.com", "お問い合わせありがとうございます", $message );
+    $_SESSION = array();
+    $mode = "send";
+  } else {
+    $_SESSION = array();
+  }
+?>
 
+
+<?php if( $mode == "input" ){ ?>
+    <!-- 入力画面 -->
+    <form action="./contact.php" method="post">
+      名前 <input type="text" name="fullname" value="<?php echo $_SESSION["fullname"] ?>">
+      Eメール <input type="email" name="email" value="<?php echo $_SESSION["email"] ?>">
+      本文 <textarea name="message" id="" cols="" rows="" value="<?php echo $_SESSION["message"] ?>"></textarea>
+      <input type="submit" name="confirm" value="確認" class="button">
+    </form>
+  <?php } else if( $mode == "confirm" ){ ?>
+    <!-- 確認画面 -->
+    <form action="./contact.php" method="post">
+      名前 <?php echo $_SESSION["fullname"] ?>
+      Eメール <?php echo $_SESSION["email"] ?>
+      本文 <?php echo nl2br($_SESSION["message"]) ?>
+      <input type="submit" name="back" value="戻る" />
+      <input type="submit" name="send" value="送信" />
+    </form>
+  <?php } else { ?>
+    <!-- 完了画面 -->
+    送信しました。お問い合わせありがとうございました。
+  <?php } ?>
+
+  <!--問い合わせフォームここまで--> 
+  
   <!--CONTACT-->
   <div id="contact">
     <div class="text">
