@@ -27,8 +27,8 @@ $(function() {
 function hamburger() {
   $('.hamburger').toggleClass('active');
   if ($('.hamburger').hasClass('active')) {
-    $('#navi').addClass('active');
+    $('#navi-sp').addClass('active');
   } else {
-    $('#navi').removeClass('active');
+    $('#navi-sp').removeClass('active');
   }
 }
