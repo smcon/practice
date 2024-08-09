@@ -1,0 +1,73 @@
+/*共通設定*/
+html {
+  font-size: 10px;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+}
+a:hover {
+  color: red;
+}
+li {
+  list-style: none;
+}
+/*共通設定end*/
+/*トップ*/
+#top {
+  background-image: url(images/1.png);
+  background-attachment: fixed;
+  width: 100%;
+  height: auto;
+}
+#top h1 {
+  font-size: 12rem;
+  color: transparent;
+    -webkit-text-stroke: 2px white;
+}
+#top h2 {
+  font-size: 5rem;
+  color: #fff;
+}
+#top h3 {
+  font-size: 3rem;
+  color: #fff;
+}
+.href {
+  width: 50%  ;
+}
+/*ボタン設定*/
+.bbs{
+  align-items: center;
+  background: #000;
+  color: #fff;
+  display: flex;
+  height: 40px;
+  line-height: 40px;
+  overflow:hidden;
+  width: 100%;
+  white-space:nowrap;
+  margin-top: 100px;
+  z-index: 1;
+}
+.bbs ul {
+  animation: flowing 5s linear infinite;
+  font-size: 20px;
+  transform:translateX(100%);
+  margin: 0;
+  padding: 0;
+}
+.bbs ul li{
+  display: inline-block;
+  padding-right: 10px;
+}
+@keyframes flowing {
+  100% { transform:translateX(0); }
+  0% { transform:translateX(-100%); }
+}
+/*トップend*/
