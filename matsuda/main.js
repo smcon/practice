@@ -24,3 +24,15 @@ $('.slider').slick({
   autoplaySpeed:1500, // スライド切り替えの時間を設定
   dots:true // インジケーターを表示
 });
+
+$(window).scroll(function (){
+	$('.slidein').each(function(){
+		var elemPos = $(this).offset().top,
+		scroll = $(window).scrollTop(),
+		windowHeight = $(window).height();
+
+			if (scroll > elemPos - windowHeight + 150){
+				$(this).addClass('scrollin');
+			}
+	});
+});
