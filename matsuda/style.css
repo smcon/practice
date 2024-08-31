@@ -93,7 +93,8 @@ li {
 #header h1 {
   margin: 10px;
   font-size: 4rem;
-  filter: invert(100%) grayscale(100%) contrast(100);
+  mix-blend-mode: difference;
+  
 }
 #navi ul {
   display: flex;
@@ -109,6 +110,8 @@ li {
 /*トップ*/
 #top {
   background-image: url(images/1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   background-attachment: fixed;
   width: 100%;
   height: auto;
@@ -184,17 +187,20 @@ li {
 .full-screen .slick-list {
   overflow: visible;
 }
-.full-screen.slider {
+.full-screen .slider {
   width: 40%;
   margin: 0 auto;
 }
+
 /*会社案内end*/
 /*採用情報*/
-
+#recruit {
+  background: url(images/6.png) no-repeat top right /cover;
+}
 /*採用情報end*/
 /*お問い合わせ*/
 #contact {
-  background-image: url(images/2.png);
+  background: url(images/2.png) no-repeat top right /cover;
 }
 #contact h1 {
   color: #fff;
@@ -204,6 +210,7 @@ li {
   color: #fff;
   -webkit-text-stroke: 1px #000 ;
 }
+
 /*お問い合わせend*/
 /*footer*/
 footer {
